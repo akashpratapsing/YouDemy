@@ -233,7 +233,7 @@ cd backend
 - `PostgresMigrationTest` uses Testcontainers and automatically skips when Docker is unavailable
 - YouTube API calls are mocked; no quota is consumed by the test suite
 
-Current result: **16 tests run, 0 failures, 0 errors, 1 skipped** (skipped test requires Docker).
+Current result: **17 tests run, 0 failures, 0 errors, 1 skipped** (skipped test requires Docker).
 
 ### Frontend
 
@@ -274,6 +274,7 @@ Current result: **17 tests passed**, TypeScript production build succeeds.
 │       │   └── youtube/      URL parsing, API client, orchestration
 │       └── resources/
 │           ├── application.yml
+│           ├── application-local.yml
 │           └── db/migration/V1__initial_schema.sql
 ├── frontend/
 │   ├── Dockerfile
