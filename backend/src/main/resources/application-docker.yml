@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    hikari:
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+logging:
+  level:
+    root: INFO
+    com.youdemy: INFO

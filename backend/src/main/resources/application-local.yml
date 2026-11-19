@@ -1,0 +1,18 @@
+# Local development only: file-backed H2 instead of PostgreSQL.
+# Start with: .\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=local"
+# Data persists in backend/data/youdemy.mv.db across restarts. Do not use this profile in production.
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/youdemy;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  flyway:
+    enabled: false
