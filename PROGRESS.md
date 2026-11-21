@@ -69,13 +69,14 @@ Last updated: 2026-11-19
 - Live YouTube playlist import has not been verified because no real `YOUTUBE_API_KEY` was provided. Production uses `YouTubeRestClient`; only tests mock the API.
 - No remaining build warnings. Route-level lazy loading and manual vendor chunks resolved the earlier Vite chunk-size warning; the largest emitted chunk is the editor vendor chunk (~334 kB raw, ~107 kB gzipped), loaded only on the learning page.
 - Redis is provided as an optional Compose profile only; the application does not require it for normal operation.
-- Git is not initialized in `D:\YouDemy`; all work is currently uncommitted.
+- Git is initialized in `D:\YouDemy` and the project is pushed to `https://github.com/akashpratapsing/YouDemy.git` on `main`.
 
 ## Known Bugs
 
 - None known in implemented application code.
 - Startup was previously blocked by a `PlaylistSummaryProjection` constructor/type mismatch; fixed by using `long` for the HQL `count()` projection and casting to `int` in `PlaylistSummaryDto`.
 - Backend integration tests previously failed due to response-envelope unwrapping and shared state; fixed by unwrapping `data` in helpers and applying per-test `@Transactional` isolation.
+- Production startup against PostgreSQL failed Hibernate validation because `V1__initial_schema.sql` omitted `created_at` on `user_video_progress`; fixed by additive `V2__add_created_at_to_user_video_progress.sql` so existing V1 databases migrate safely.
 
 ## Test Results
 
