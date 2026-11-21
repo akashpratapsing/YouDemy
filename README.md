@@ -215,6 +215,8 @@ Environment variables are read by Spring Boot from `application.yml`:
 | `SERVER_PORT` | `8080` | Backend port |
 | `VITE_API_BASE_URL` | `/api` | API base URL baked into the SPA; Vite proxies `/api` in dev and Nginx proxies it in Docker |
 
+If `DATABASE_URL` contains embedded credentials (`postgresql://user:password@host:5432/db`), remove the `DATABASE_USERNAME` and `DATABASE_PASSWORD` lines entirely; otherwise those variables override the credentials in the URL and you will see `FATAL: password authentication failed`. URL-encode special characters in an embedded password (`@` → `%40`, `#` → `%23`, `/` → `%2F`). Alternatively, remove `user:password@` from the URL and set `DATABASE_USERNAME` / `DATABASE_PASSWORD` with the raw values.
+
 Important: without `YOUTUBE_API_KEY`, importing a new playlist returns `503 YOUTUBE_API_ERROR` with a clear message. Playlists already in the database can still be opened because their metadata is cached locally.
 
 ---
