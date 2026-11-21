@@ -203,9 +203,9 @@ Environment variables are read by Spring Boot from `application.yml`:
 
 | Variable | Default | Description |
 | --- | --- | --- |
-| `DATABASE_URL` | `jdbc:postgresql://localhost:5432/youdemy` | JDBC URL |
-| `DATABASE_USERNAME` | `youdemy` | DB user |
-| `DATABASE_PASSWORD` | `change-me` | DB password |
+| `DATABASE_URL` | `jdbc:postgresql://localhost:5432/youdemy` | JDBC URL or a standard `postgresql://user:pass@host:5432/db?sslmode=require` connection string; credentials in the string are used when the variables below are not set |
+| `DATABASE_USERNAME` | `youdemy` | DB user; override the user embedded in `DATABASE_URL` if set |
+| `DATABASE_PASSWORD` | `change-me` | DB password; override the password embedded in `DATABASE_URL` if set |
 | `DATABASE_NAME` | `youdemy` | Compose Postgres database name |
 | `JWT_SECRET` | dev placeholder | HS384 signing secret; set a long random value |
 | `SPRING_PROFILES_ACTIVE` | default (PostgreSQL) | Set to `local` to use file-backed H2; no database install needed |

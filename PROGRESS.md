@@ -83,8 +83,9 @@ Last updated: 2026-11-19
 
 Command (from `backend/`): `.\mvnw.cmd test`
 
-- **17 tests run, 0 failures, 0 errors, 1 skipped**
+- **24 tests run, 0 failures, 0 errors, 1 skipped**
 - `AuthIntegrationTest`: 5 passed
+- `DatabaseUrlEnvironmentPostProcessorTest`: 7 passed
 - `EnvFileImportTest`: 1 passed
 - `PlaylistIntegrationTest`: 7 passed
 - `YouTubeUrlParserTest`: 3 passed
